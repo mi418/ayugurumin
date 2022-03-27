@@ -8,6 +8,7 @@ import datetime
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+import json
 
 
 #提案ボタンの動的処理のために挿入
