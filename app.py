@@ -83,7 +83,12 @@ if button_state:
 
 
   st.image(img_result, channels="BGR")
+  #データを一時保存
   st.session_state.img_result=img_result
+    
+  st.session_state.prop_list=[face_num,l_e_num,r_e_num
+                  ,body_num,l_h_num,r_h_num,l_l_num,r_l_num
+                  ,datetime.datetime.now()]
   st.write(st.session_state.count)
   st.session_state.count = 'Prop'
   
@@ -99,9 +104,7 @@ if st.session_state.count=='Prop':
 
     st.write('sheet = wb.worksheets[0]')
     # 行データを追加と保存
-    sheet.append([face_num,l_e_num,r_e_num
-                  ,body_num,l_h_num,r_h_num,l_l_num,r_l_num
-                  ,datetime.datetime.now()])
+    sheet.append(st.session_state.prop_list)
     st.write('append')
     wb.save('20220327_proposal_data.xlsx')  
     st.write('save')  
