@@ -16,23 +16,34 @@ dic_color=dic_color.item()
 
 img_result = np.copy(img)
 
-# face_num=10
-l_e_num=11
-r_e_num=12
-body_num=13
-l_h_num=14
-r_h_num=15
-l_l_num=16
-r_l_num=17
-
 cl_num_list=list(dic_color.keys())
 # selectbox
+#face
 face_num = st.selectbox(
     'select box:',cl_num_list)
 st.write('You selected: ', face_num)
+# ear
+l_e_num = st.selectbox(
+    'select box:',cl_num_list)
+st.write('You selected: ', l_e_num)
+r_e_num=l_e_num
+# body
+l_e_num = st.selectbox(
+    'select box:',cl_num_list)
+st.write('You selected: ', body_num)
+# hand
+l_e_num = st.selectbox(
+    'select box:',cl_num_list)
+st.write('You selected: ', l_h_num)
+r_h_num=l_h_num
+# leg
+l_e_num = st.selectbox(
+    'select box:',cl_num_list)
+st.write('You selected: ', l_l_num)
+r_l_num=l_l_num
 
 # button
-button_state = st.button('Say hello')
+button_state = st.button('クマちゃん出力！')
 if button_state:
 
   # 特定の色を別の色に置換する
