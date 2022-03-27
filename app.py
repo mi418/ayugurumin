@@ -105,9 +105,8 @@ if st.session_state.count=='Prop':
     st.write('sheet = wb.worksheets[0]')
     # 行データを追加と保存
     sheet.append(st.session_state.prop_list)
-    st.write('append')
+    st.write(st.session_state.prop_list)
     wb.save('20220327_proposal_data.xlsx')  
-    st.write('save')  
     st.image(st.session_state.img_result, channels="BGR")
     st.session_state.count = 'NotProp'
 
