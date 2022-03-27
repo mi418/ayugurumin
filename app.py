@@ -119,8 +119,7 @@ if st.session_state.state=='Prop':
     credentials = ServiceAccountCredentials.from_json_keyfile_name(json_file, scope)
     gc = gspread.authorize(credentials)
     sh = gc.open(file_name)
-
-    sheet = wb.worksheets[0]
+    
     wks = sh.worksheet(sheet_name1)
     # 行データを追加と保存
     wks.append_row(st.session_state.prop_list)
