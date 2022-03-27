@@ -14,7 +14,8 @@ import json
 #提案ボタンの動的処理のために挿入
 if 'state' not in st.session_state: 
     st.session_state.state = 'NotProp' #countがsession_stateに追加されていない場合，0で初期化    
-    
+# タイトル
+st.title('オリジナルクマちゃん')
 befor_after_png = cv2.imread('befor_after_png.png') # 画像の読み出し
 st.image(befor_after_png, channels="BGR")
 
