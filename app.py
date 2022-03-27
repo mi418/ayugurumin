@@ -64,4 +64,4 @@ after_color = dic_color[str(r_l_num)]
 img_result[np.where((img_result == before_color).all(axis=2))] = after_color
 
 
-# st.image(img_result)
+st.image(img_result)
