@@ -12,6 +12,8 @@ img_col = cv2.imread('coler_png.png') # 画像の読み出し
 st.image(img_col)
 
 img = cv2.imread('original_png.png') # 画像の読み出し
+st.image(img)
+
 
 dic_color = np.load('dic_color.npy', allow_pickle='TRUE')
 dic_color=dic_color.item()
