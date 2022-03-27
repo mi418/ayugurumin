@@ -19,26 +19,21 @@ img_result = np.copy(img)
 cl_num_list=list(dic_color.keys())
 # selectbox
 #face
-face_num = st.selectbox(
-    'select box:',cl_num_list)
+face_num = st.selectbox('select box:',cl_num_list, key="face")
 st.write('You selected: ', face_num)
 # ear
-l_e_num = st.selectbox(
-    'select box:',cl_num_list)
+l_e_num = st.selectbox('select box:',cl_num_list, key="ear")
 st.write('You selected: ', l_e_num)
 r_e_num=l_e_num
 # body
-l_e_num = st.selectbox(
-    'select box:',cl_num_list)
+l_e_num = st.selectbox('select box:',cl_num_list), key="body"
 st.write('You selected: ', body_num)
 # hand
-l_e_num = st.selectbox(
-    'select box:',cl_num_list)
+l_e_num = st.selectbox('select box:',cl_num_list, key="hand")
 st.write('You selected: ', l_h_num)
 r_h_num=l_h_num
 # leg
-l_e_num = st.selectbox(
-    'select box:',cl_num_list)
+l_e_num = st.selectbox('select box:',cl_num_list, key="leg")
 st.write('You selected: ', l_l_num)
 r_l_num=l_l_num
 
