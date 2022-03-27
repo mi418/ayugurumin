@@ -77,7 +77,7 @@ if button_state:
   img_result[np.where((img_result == before_color).all(axis=2))] = after_color
 
 
-  st.image(img_result, channels="BGR")wb = openpyxl.Workbook()
+  st.image(img_result, channels="BGR")
   
   # button
   button_state = st.button('提案する', key="proposal")
