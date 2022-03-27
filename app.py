@@ -5,7 +5,6 @@ import numpy as np
 
 import pickle
 
-import pandas as pd
 
 st.title("Hello World !")
 
@@ -15,7 +14,7 @@ img = cv2.imread('/original_png.png') # 画像の読み出し
 # f = open('/dic_color.txt','rb')
 # dic_color = pickle.load(f)
 
-dic_color=pd.read_table("dic_color.txt")
+dic_color = np.load('dic_color.npy', allow_pickle='TRUE')
 
 
 img_result = np.copy(img)
