@@ -9,7 +9,7 @@ import pickle
 # st.title("Hello World !")
 
 img_col = cv2.imread('coler_png.png') # 画像の読み出し
-st.image(img_col)
+st.image(cv2_imshow(img_col))
 
 img = cv2.imread('original_png.png') # 画像の読み出し
 st.image(img)
