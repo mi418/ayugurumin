@@ -85,7 +85,7 @@ if button_state:
   st.session_state.count += 1 #値の更新
   
 if st.session_state.count>0:
-  st.write('Count = ' + st.session_state.count)
+  st.write(st.session_state.count)
   
   # button
   button_state_proposal = st.button('提案する', key="proposal")
