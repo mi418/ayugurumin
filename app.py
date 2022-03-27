@@ -11,7 +11,7 @@ st.title("Hello World !")
 img = cv2.imread('/original_png.png') # 画像の読み出し
 # cv2_imshow(img)
 
-f = open('/dic_color.txt','r')
+f = open('/dic_color.txt','rb')
 dic_color = pickle.load(f)
 
 
