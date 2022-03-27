@@ -7,10 +7,8 @@ import openpyxl
 import datetime
 
 #提案ボタンの動的処理のために挿入
-if 'count' not in st.session_state: 
-    st.session_state.count = 'NotProp' #countがsession_stateに追加されていない場合，0で初期化
-st.write(st.session_state.count)
-    
+if 'state' not in st.session_state: 
+    st.session_state.state = 'NotProp' #countがsession_stateに追加されていない場合，0で初期化    
     
 befor_after_png = cv2.imread('befor_after_png.png') # 画像の読み出し
 st.image(befor_after_png, channels="BGR")
@@ -21,7 +19,7 @@ st.image(img_col, channels="BGR")
 img = cv2.imread('original_png.png') # 画像の読み出し
 # st.image(img, channels="BGR")
 
-
+#カラーリスト表示
 dic_color = np.load('dic_color.npy', allow_pickle='TRUE')
 dic_color=dic_color.item()
 
@@ -81,32 +79,29 @@ if button_state:
   after_color = dic_color[str(r_l_num)]
   img_result[np.where((img_result == before_color).all(axis=2))] = after_color
 
-
+  #完成図表示
   st.image(img_result, channels="BGR")
   #データを一時保存
   st.session_state.img_result=img_result
-    
   st.session_state.prop_list=[face_num,l_e_num,r_e_num
                   ,body_num,l_h_num,r_h_num,l_l_num,r_l_num
                   ,datetime.datetime.now()]
-  st.write(st.session_state.count)
-  st.session_state.count = 'Prop'
+  #state変更
+  st.session_state.state = 'Prop'
   
-if st.session_state.count=='Prop':
-  st.write(st.session_state.count)
+if st.session_state.state=='Prop':
   
   # button
   button_state_proposal = st.button('提案する', key="proposal")
   if button_state_proposal:
-    st.write('if button_state_proposal')
     wb = openpyxl.load_workbook('20220327_proposal_data.xlsx')
     sheet = wb.worksheets[0]
 
-    st.write('sheet = wb.worksheets[0]')
     # 行データを追加と保存
     sheet.append(st.session_state.prop_list)
-    st.write(st.session_state.prop_list)
     wb.save('20220327_proposal_data.xlsx')  
+    #再表示
     st.image(st.session_state.img_result, channels="BGR")
-    st.session_state.count = 'NotProp'
+    #state変更
+    st.session_state.state = 'NotProp'
 
