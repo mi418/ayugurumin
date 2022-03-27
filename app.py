@@ -22,20 +22,18 @@ img_result = np.copy(img)
 
 cl_num_list=list(dic_color.keys())
 # selectbox
-#face
-face_num = st.selectbox('お顔の色は？',cl_num_list, key="face")
+#face and body
+face_num = st.selectbox('お顔とお腹の色は？',cl_num_list, key="face")
 # st.write('You selected: ', face_num)
+body_num=face_num
 # ear
 l_e_num = st.selectbox('お耳の色は？',cl_num_list, key="ear")
 r_e_num=l_e_num
-# body
-body_num = st.selectbox('お腹の色は？',cl_num_list, key="body")
-# hand
-l_h_num = st.selectbox('手の色は？',cl_num_list, key="hand")
+# hand　and leg
+l_h_num = st.selectbox('手足の色は？',cl_num_list, key="hand")
 r_h_num=l_h_num
-# leg
-l_l_num = st.selectbox('足の色は？',cl_num_list, key="leg")
-r_l_num=l_l_num
+l_l_num=l_h_num
+r_l_num=l_h_num
 
 # button
 button_state = st.button('クマちゃん出力！')
