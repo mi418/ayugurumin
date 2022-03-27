@@ -6,6 +6,10 @@ import numpy as np
 import openpyxl
 import datetime
 
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
+
 #提案ボタンの動的処理のために挿入
 if 'state' not in st.session_state: 
     st.session_state.state = 'NotProp' #countがsession_stateに追加されていない場合，0で初期化    
@@ -94,13 +98,32 @@ if st.session_state.state=='Prop':
   # button
   button_state_proposal = st.button('提案する', key="proposal")
   if button_state_proposal:
-    wb = openpyxl.load_workbook('20220327_proposal_data.xlsx')
-    sheet = wb.worksheets[0]
+#     wb = openpyxl.load_workbook('20220327_proposal_data.xlsx')
+#     sheet = wb.worksheets[0]
 
+#     # 行データを追加と保存
+#     sheet.append(st.session_state.prop_list)
+#     st.write(st.session_state.prop_list)
+#     wb.save('20220327_proposal_data.xlsx')  
+
+    # 設定
+    json_file = 'lithe-maker-345410-6434a635c467.json'
+    file_name = '20220327_proposal_data_spred'
+    sheet_name1 = 'シート1'
+
+    scope = ['https://spreadsheets.google.com/feeds',
+             'https://www.googleapis.com/auth/drive']
+
+    # スプレッドシートにアクセス
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(json_file, scope)
+    gc = gspread.authorize(credentials)
+    sh = gc.open(file_name)
+
+    sheet = wb.worksheets[0]
+    wks = sh.worksheet(sheet_name1)
     # 行データを追加と保存
-    sheet.append(st.session_state.prop_list)
-    st.write(st.session_state.prop_list)
-    wb.save('20220327_proposal_data.xlsx')  
+    wks.append_row(st.session_state.prop_list)
+
     #再表示
     st.write('ご提案ありがとうございました！')
     st.image(st.session_state.img_result, channels="BGR")
