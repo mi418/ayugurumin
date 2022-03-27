@@ -99,6 +99,7 @@ if st.session_state.state=='Prop':
 
     # 行データを追加と保存
     sheet.append(st.session_state.prop_list)
+    st.write(st.session_state.prop_list)
     wb.save('20220327_proposal_data.xlsx')  
     #再表示
     st.image(st.session_state.img_result, channels="BGR")
