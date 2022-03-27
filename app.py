@@ -105,6 +105,6 @@ if st.session_state.count=='Prop':
     st.write('append')
     wb.save('20220327_proposal_data.xlsx')  
     st.write('save')  
-    st.image(img_result, channels="BGR")
+    st.image(st.session_state.img_result, channels="BGR")
     st.session_state.count = 'NotProp'
 
