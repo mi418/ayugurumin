@@ -16,15 +16,15 @@ if 'state' not in st.session_state:
     st.session_state.state = 'NotProp' #countがsession_stateに追加されていない場合，0で初期化    
 # タイトル
 st.title('オリジナルクマちゃん')
+
+st.write('こんな感じになるよ')
 befor_after_png = cv2.imread('befor_after_png.png') # 画像の読み出し
 st.image(befor_after_png, channels="BGR")
 
-st.write('こんな感じになるよ')
+st.write('カラーリスト')
 img_col = cv2.imread('coler_png.png') # 画像の読み出し
 st.image(img_col, channels="BGR")
 
-
-st.write('カラーリスト')
 img = cv2.imread('original_png.png') # 画像の読み出し
 # st.image(img, channels="BGR")
 
