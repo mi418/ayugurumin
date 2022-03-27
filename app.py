@@ -3,6 +3,9 @@ import streamlit as st
 import cv2
 import numpy as np
 
+import openpyxl
+import datetime
+
 
 befor_after_png = cv2.imread('befor_after_png.png') # 画像の読み出し
 st.image(befor_after_png, channels="BGR")
@@ -36,7 +39,7 @@ l_l_num=l_h_num
 r_l_num=l_h_num
 
 # button
-button_state = st.button('クマちゃん出力！')
+button_state = st.button('クマちゃん出力！', key="create")
 if button_state:
 
   # 特定の色を別の色に置換する
@@ -74,4 +77,17 @@ if button_state:
   img_result[np.where((img_result == before_color).all(axis=2))] = after_color
 
 
-  st.image(img_result, channels="BGR")
+  st.image(img_result, channels="BGR")wb = openpyxl.Workbook()
+  
+  # button
+  button_state = st.button('提案する', key="proposal")
+  if button_state:
+    wb = openpyxl.load_workbook('20220327_proposal_data.xlsx')
+    sheet = wb.worksheets[0]
+
+    # 行データを追加と保存
+    sheet.append([face_num,l_e_num,r_e_num
+                  ,body_num,l_h_num,r_h_num,l_l_num,r_l_num
+                  ,datetime.datetime.now()])
+    wb.save('20220327_proposal_data.xlsx')    
+  
