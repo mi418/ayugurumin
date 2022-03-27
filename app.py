@@ -80,8 +80,8 @@ if button_state:
   st.image(img_result, channels="BGR")
   
   # button
-  button_state = st.button('提案する', key="proposal")
-  if button_state:
+  button_state_proposal = st.button('提案する', key="proposal")
+  if button_state_proposal:
     wb = openpyxl.load_workbook('20220327_proposal_data.xlsx')
     sheet = wb.worksheets[0]
 
