@@ -15,6 +15,7 @@ img = cv2.imread('original_png.png') # 画像の読み出し
 # dic_color = pickle.load(f)
 
 dic_color = np.load('dic_color.npy', allow_pickle='TRUE')
+dic_color=dic_color.item()
 
 
 img_result = np.copy(img)
