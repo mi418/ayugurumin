@@ -25,7 +25,7 @@ r_h_num=15
 l_l_num=16
 r_l_num=17
 
-cl_num_list=ist(dic_color.keys())
+cl_num_list=list(dic_color.keys())
 # selectbox
 face_num = st.selectbox(
     'select box:',cl_num_list)
