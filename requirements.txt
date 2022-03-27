@@ -4,3 +4,4 @@ numpy==1.21.5
 openpyxl
 datetime
 gspread
+google-api-python-client
