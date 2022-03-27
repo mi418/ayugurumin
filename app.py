@@ -9,6 +9,7 @@ import datetime
 #提案ボタンの動的処理のために挿入
 if 'count' not in st.session_state: 
     st.session_state.count = 0 #countがsession_stateに追加されていない場合，0で初期化
+st.write(st.session_state.count)
     
     
 befor_after_png = cv2.imread('befor_after_png.png') # 画像の読み出し
@@ -83,6 +84,7 @@ if button_state:
 
   st.image(img_result, channels="BGR")
   st.session_state.count += 1 #値の更新
+  st.write(st.session_state.count)
   
 if st.session_state.count>0:
   st.write(st.session_state.count)
