@@ -8,7 +8,7 @@ import datetime
 
 #提案ボタンの動的処理のために挿入
 if 'count' not in st.session_state: 
-    st.session_state.count = 0 #countがsession_stateに追加されていない場合，0で初期化
+    st.session_state.count = 'NotProp' #countがsession_stateに追加されていない場合，0で初期化
 st.write(st.session_state.count)
     
     
@@ -83,8 +83,8 @@ if button_state:
 
 
   st.image(img_result, channels="BGR")
-  st.session_state.count += 1 #値の更新
   st.write(st.session_state.count)
+  st.session_state.count = 'Prop'
   
 if st.session_state.count>0:
   st.write(st.session_state.count)
@@ -105,4 +105,5 @@ if st.session_state.count>0:
     wb.save('20220327_proposal_data.xlsx')  
     st.write('save')  
     st.image(img_result, channels="BGR")
+    st.session_state.count = 'Prop'
 
