@@ -5,7 +5,6 @@ import numpy as np
 
 
 befor_after_png = cv2.imread('befor_after_png.png') # 画像の読み出し
-st.print('こうなるかも？')
 st.image(befor_after_png, channels="BGR")
 
 img_col = cv2.imread('coler_png.png') # 画像の読み出し
