@@ -93,10 +93,9 @@ if button_state:
   #データを一時保存
   st.session_state.img_result=img_result
   ds=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
-  ds=str(ds.year)+str(ds.month)+str(ds.day)+str(ds.hour)+str(ds.minute)
   st.session_state.prop_list=[face_num,l_e_num,r_e_num
                   ,body_num,l_h_num,r_h_num,l_l_num,r_l_num
-                  ,ds]
+                  ,ds.year,ds.month,ds.day,ds.hour,ds.minute]
   #state変更
   st.session_state.state = 'Prop'
   
