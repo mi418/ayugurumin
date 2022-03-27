@@ -102,6 +102,7 @@ if st.session_state.state=='Prop':
     st.write(st.session_state.prop_list)
     wb.save('20220327_proposal_data.xlsx')  
     #再表示
+    st.write('ご提案ありがとうございました！')
     st.image(st.session_state.img_result, channels="BGR")
     #state変更
     st.session_state.state = 'NotProp'
