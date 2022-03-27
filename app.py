@@ -4,9 +4,13 @@ import cv2
 import numpy as np
 
 import openpyxl
-import datetime
+import datetim
 
-
+#提案ボタンの動的処理のために挿入
+if 'count' not in st.session_state: 
+    st.session_state.count = 0 #countがsession_stateに追加されていない場合，0で初期化
+    
+    
 befor_after_png = cv2.imread('befor_after_png.png') # 画像の読み出し
 st.image(befor_after_png, channels="BGR")
 
@@ -78,21 +82,25 @@ if button_state:
 
 
   st.image(img_result, channels="BGR")
+  st.session_state.count += 1 #値の更新
   
-# button
-button_state_proposal = st.button('提案する', key="proposal")
-if button_state_proposal:
-  st.write('if button_state_proposal')
-  wb = openpyxl.load_workbook('20220327_proposal_data.xlsx')
-  sheet = wb.worksheets[0]
+if st.session_state.count>0:
+  st.write('Count = ' + st.session_state.count)
+  
+  # button
+  button_state_proposal = st.button('提案する', key="proposal")
+  if button_state_proposal:
+    st.write('if button_state_proposal')
+    wb = openpyxl.load_workbook('20220327_proposal_data.xlsx')
+    sheet = wb.worksheets[0]
 
-  st.write('sheet = wb.worksheets[0]')
-  # 行データを追加と保存
-  sheet.append([face_num,l_e_num,r_e_num
-                ,body_num,l_h_num,r_h_num,l_l_num,r_l_num
-                ,datetime.datetime.now()])
-  st.write('append')
-  wb.save('20220327_proposal_data.xlsx')  
-  st.write('save')  
-  st.image(img_result, channels="BGR")
-  
+    st.write('sheet = wb.worksheets[0]')
+    # 行データを追加と保存
+    sheet.append([face_num,l_e_num,r_e_num
+                  ,body_num,l_h_num,r_h_num,l_l_num,r_l_num
+                  ,datetime.datetime.now()])
+    st.write('append')
+    wb.save('20220327_proposal_data.xlsx')  
+    st.write('save')  
+    st.image(img_result, channels="BGR")
+
