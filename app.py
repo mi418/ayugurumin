@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 
 import openpyxl
-import datetim
+import datetime
 
 #提案ボタンの動的処理のために挿入
 if 'count' not in st.session_state: 
