@@ -83,6 +83,7 @@ if button_state:
 
 
   st.image(img_result, channels="BGR")
+  st.session_state.img_result=img_result
   st.write(st.session_state.count)
   st.session_state.count = 'Prop'
   
