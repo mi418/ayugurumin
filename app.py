@@ -19,9 +19,12 @@ st.title('オリジナルクマちゃん')
 befor_after_png = cv2.imread('befor_after_png.png') # 画像の読み出し
 st.image(befor_after_png, channels="BGR")
 
+st.write('こんな感じになるよ')
 img_col = cv2.imread('coler_png.png') # 画像の読み出し
 st.image(img_col, channels="BGR")
 
+
+st.write('カラーリスト')
 img = cv2.imread('original_png.png') # 画像の読み出し
 # st.image(img, channels="BGR")
 
