@@ -82,13 +82,17 @@ if button_state:
   # button
   button_state_proposal = st.button('提案する', key="proposal")
   if button_state_proposal:
+    st.write('if button_state_proposal')
     wb = openpyxl.load_workbook('20220327_proposal_data.xlsx')
     sheet = wb.worksheets[0]
 
+    st.write('sheet = wb.worksheets[0]')
     # 行データを追加と保存
     sheet.append([face_num,l_e_num,r_e_num
                   ,body_num,l_h_num,r_h_num,l_l_num,r_l_num
                   ,datetime.datetime.now()])
-    wb.save('20220327_proposal_data.xlsx')    
+    st.write('append')
+    wb.save('20220327_proposal_data.xlsx')  
+    st.write('save')  
     st.image(img_result, channels="BGR")
   
