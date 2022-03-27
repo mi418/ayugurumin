@@ -86,7 +86,7 @@ if button_state:
   st.write(st.session_state.count)
   st.session_state.count = 'Prop'
   
-if st.session_state.count>0:
+if st.session_state.count=='Prop':
   st.write(st.session_state.count)
   
   # button
@@ -105,5 +105,5 @@ if st.session_state.count>0:
     wb.save('20220327_proposal_data.xlsx')  
     st.write('save')  
     st.image(img_result, channels="BGR")
-    st.session_state.count = 'Prop'
+    st.session_state.count = 'NotProp'
 
