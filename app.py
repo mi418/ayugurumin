@@ -90,4 +90,5 @@ if button_state:
                   ,body_num,l_h_num,r_h_num,l_l_num,r_l_num
                   ,datetime.datetime.now()])
     wb.save('20220327_proposal_data.xlsx')    
+    st.image(img_result, channels="BGR")
   
