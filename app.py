@@ -17,7 +17,7 @@ if 'state' not in st.session_state:
 # タイトル
 st.title('オリジナルクマちゃん')
 
-st.write('こんな感じになるよ')
+st.write('こんな感じだよ')
 befor_after_png = cv2.imread('befor_after_png.png') # 画像の読み出し
 st.image(befor_after_png, channels="BGR")
 
