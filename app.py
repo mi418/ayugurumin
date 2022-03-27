@@ -4,6 +4,9 @@ import cv2
 import numpy as np
 
 
+befor_after_png = cv2.imread('befor_after_png.png') # 画像の読み出し
+st.image(befor_after_png, channels="BGR")
+
 img_col = cv2.imread('coler_png.png') # 画像の読み出し
 st.image(img_col, channels="BGR")
 
