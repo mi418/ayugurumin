@@ -26,7 +26,7 @@ l_e_num = st.selectbox('select box:',cl_num_list, key="ear")
 st.write('You selected: ', l_e_num)
 r_e_num=l_e_num
 # body
-body_num = st.selectbox('select box:',cl_num_list), key="body")
+body_num = st.selectbox('select box:',cl_num_list, key="body")
 st.write('You selected: ', body_num)
 # hand
 l_h_num = st.selectbox('select box:',cl_num_list, key="hand")
