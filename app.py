@@ -11,8 +11,13 @@ st.title("Hello World !")
 img = cv2.imread('/original_png.png') # 画像の読み出し
 # cv2_imshow(img)
 
-f = open('/dic_color.txt','rb')
-dic_color = pickle.load(f)
+# f = open('/dic_color.txt','rb')
+# dic_color = pickle.load(f)
+
+from pathlib import Path
+
+p = Path('dic_color.txt')  # s = Path('test.txt').read_text()
+dic_color = p.read_text()  # ファイルのオープン、読み込み、クローズをまとめて実行
 
 
 img_result = np.copy(img)
