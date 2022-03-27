@@ -3,16 +3,12 @@ import streamlit as st
 import cv2
 import numpy as np
 
-import pickle
-
-
-# st.title("Hello World !")
 
 img_col = cv2.imread('coler_png.png') # 画像の読み出し
 st.image(img_col, channels="BGR")
 
 img = cv2.imread('original_png.png') # 画像の読み出し
-st.image(img)
+# st.image(img, channels="BGR")
 
 
 dic_color = np.load('dic_color.npy', allow_pickle='TRUE')
@@ -77,4 +73,4 @@ if button_state:
   img_result[np.where((img_result == before_color).all(axis=2))] = after_color
 
 
-  st.image(img_result)
+  st.image(img_result, channels="BGR")
