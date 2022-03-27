@@ -99,15 +99,9 @@ if button_state:
 if st.session_state.state=='Prop':
   
   # button
+  st.write('かわいいのができたら是非提案ボタンを押してください！')
   button_state_proposal = st.button('提案する', key="proposal")
   if button_state_proposal:
-#     wb = openpyxl.load_workbook('20220327_proposal_data.xlsx')
-#     sheet = wb.worksheets[0]
-
-#     # 行データを追加と保存
-#     sheet.append(st.session_state.prop_list)
-#     st.write(st.session_state.prop_list)
-#     wb.save('20220327_proposal_data.xlsx')  
 
     # 設定
     json_file = 'lithe-maker-345410-6434a635c467.json'
